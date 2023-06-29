@@ -29,6 +29,7 @@ if (isset($_POST['register'])) {
   $perselNo = $_POST['perselNo'];
   $email = $_POST['email'];
   $role = $_POST['role'];
+  $mentorEmail = $_POST['mentorEmail'];
   $pwd = $_POST['pwd'];
   $cpwd = $_POST['cpwd'];
   $validEmail = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
@@ -59,13 +60,14 @@ if (isset($_POST['register'])) {
     if (mysqli_num_rows($select)) {
       echo '<i style="color:red;">This email is already being used</i>';
     }
-    $query = "INSERT INTO register(name, surname,  perselNo, email, pwd, role) VALUES('$name', '$surname', '$perselNo', '$email',  '$pwd', '$role') ";
+    $query = "INSERT INTO register(name, surname,  perselNo, email, pwd, role, mentorEmail) VALUES('$name', '$surname', '$perselNo', '$email',  '$pwd', '$role', '$mentorEmail') ";
 
     $register_user = mysqli_query($con, $query);
 
     if (!$register_user) {
       die("Query Failed" . mysqli_error($con));
     }
+    
   }
 }
 ?>
@@ -74,8 +76,6 @@ if (isset($_POST['register'])) {
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
-
-
         <h2>Sign Up</h2>
         <form action="" method="POST" enctype="multipart/form-data">
           <div class="form-group">
@@ -88,11 +88,6 @@ if (isset($_POST['register'])) {
             <input type="text" class="form-control" id="surname" placeholder="Enter Surname" name="surname">
           </div>
           <br>
-          <!-- <div class="form-group">
-            <label for="email">ID Number</label><br>
-            <input type="text" class="form-control" id="id_number" placeholder="Enter ID Number" name="id_number">
-          </div> -->
-          <br>
           <div class="form-group">
             <label for="perselNo">Persel Number</label><br>
             <input type="text" class="form-control" id="perselNo" placeholder="Mentor Persel Number" name="perselNo">
@@ -103,7 +98,7 @@ if (isset($_POST['register'])) {
             <input type="text" class="form-control" id="email" placeholder="Enter email Address" name="email">
           </div>
           <small id="emailHelp" class="form-text text-muted">Do not share your email with anyone
-                            else.</small>
+            else.</small>
           <br>
           <div class="form-group">
             <label for="role">Role:</label><br>
@@ -113,6 +108,25 @@ if (isset($_POST['register'])) {
               <option value="Admin">Admin</option>
             </select>
           </div>
+          <br>
+          <div class="form-group">
+            <p style="font-weight: bold; color: red;">FOR INTERN ONLY</p>
+            <label for="mentorEmail">Select your mentorEmail</label><br>
+            <?php
+            include "db/database.php";
+            $sql = "SELECT email FROM mentor";
+            $result = $con->query($sql);
+            if ($result->num_rows > 0) {
+              echo "<select name='mentorEmail' id ='mentorEmail'>";
+              echo "<option value=''>" . 'Select Mentor' . "</option>";
+              while ($row = $result->fetch_assoc()) {
+                echo "<option value='" . $row['email'] . "'>" . $row['email'] . "</option>";
+              }
+              echo "</select>";
+            }
+            ?>
+          </div>
+
           <br>
           <div class="form-group">
             <label for="pwd">Password</label><br>

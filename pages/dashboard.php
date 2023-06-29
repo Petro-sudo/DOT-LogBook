@@ -41,124 +41,121 @@ if (!isset($_SESSION['ID'])) {
 </head>
 <br>
 
-<body>
-    <!--  intern -->
-    <?php if ($_SESSION['ROLE'] == 'Intern') { ?>
-        <form action="" method="POST" enctype="multipart/form-data">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Weekly Date:Monday-Friday</th>
-                        <th>hours Worked</th>
-                        <th>Activity</th>
-                        <th>Task Description</th>
+<body class="body">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <!--  intern -->
+                <?php if ($_SESSION['ROLE'] == 'Intern') { ?>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <table class="table table-hover">
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="date" class="form-control" id="startDate" name="startDate"><input type="date"
-                                class="form-control" id="endDate" name="endDate"></input></td>
-                        <td><input type="number" class="form-control" id="hours" name="hours"></input></td>
-                        <td><input type="text" class="form-control" id="activity" name="activity"></input></td>
-                        <td><textarea type="text" class="form-control" id="task_description"
-                                name="task_description"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="date" class="form-control" id="startDate" name="startDate"><input type="date"
-                                class="form-control" id="endDate" name="endDate"></input></td>
-                        <td><input type="number" class="form-control" id="hours" name="hours"></input></td>
-                        <td><input type="text" class="form-control" id="activity" name="activity"></input></td>
-                        <td><textarea type="text" class="form-control" id="task_description"
-                                name="task_description"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="date" class="form-control" id="startDate" name="startDate"><input type="date"
-                                class="form-control" id="endDate" name="endDate"></input></td>
-                        <td><input type="number" class="form-control" id="hours" name="hours"></input></td>
-                        <td><input type="text" class="form-control" id="activity" name="activity"></input></td>
-                        <td><textarea type="text" class="form-control" id="task_description"
-                                name="task_description"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="date" class="form-control" id="startDate" name="startDate"><input type="date"
-                                class="form-control" id="endDate" name="endDate"></input></td>
-                        <td><input type="number" class="form-control" id="hours" name="hours"></input></td>
-                        <td><input type="text" class="form-control" id="activity" name="activity"></input></td>
-                        <td><textarea type="text" class="form-control" id="task_description"
-                                name="task_description"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="date" class="form-control" id="startDate" name="startDate"><input type="date"
-                                class="form-control" id="endDate" name="endDate"></input></td>
-                        <td><input type="number" class="form-control" id="hours" name="hours"></input></td>
-                        <td><input type="text" class="form-control" id="activity" name="activity"></input></td>
-                        <td><textarea type="text" class="form-control" id="task_description"
-                                name="task_description"></textarea>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <p style="font-weight: bold;font-size: large;">-On this page you need to fill in all your
+                                monthky tasks as followers:
+                            <p style="font-weight: bold;font-size: large;">-Date:Monthly</p>
+                            <p style="font-weight: bold;font-size: large;">-Hours Worked: Monthly</p>
+                            <p style="font-weight: bold;font-size: large;">-On your Task Description field you need to fill
+                                it as followers for example:</p>
+                            <p style="font-weight: bold;font-size: large;">Date (Monday-Friday)</p>
+                            <p> +05/June/2023 - 09/June/2023</p>
+                            <p style="font-weight: bold;font-size: large;"> Task Given</p>
+                            <p> + NLTS Training (RAS & NTS)</p>
+                            <p style="font-weight: bold;font-size: large;">Task Description </p>
+                            <p> + I attended a training where and I was taught
+                                about Registration Administration System (RAS) and National Transport Route (NTR).
+                                On RAS I have learned on how to create associations, association members, update their
+                                status and their information using the NLTISystem.
+                                On NTS I have learned on how to register routes that the associations will be using.
+                            </p>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="form-group">
-                        <label for="proof">Attach file as a proof of the activities you have done</label><br>
-                        <input type="text" class="form-control" id="file" name="file" required></input>
-                        <input type="file" name="file"><br><br>
-                        <br />
-                    </div>
-                </div>
+                            <p style="font-weight: bold;font-size: large;"> + Lastly Attach proof or attandnce</p>
+                            <p style="font-weight: bold;font-size: large;">Monthly</p>
+                            <label for="startDate" style="font-weight: bold;">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate"></input><br>
+                            <label for="endDate" style="font-weight: bold;">End Date</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate"></input><br>
+                            <label for="hours" style="font-weight: bold;">Enter Monthly Hours</label>
+                            <input type="number" class="form-control" id="hours" name="hours"></input><br>
+                            <label for="task_description" style="font-weight: bold;">Task Description</label>
+                            <textarea type="text" class="form-control" id="task_description"
+                                name="task_description"></textarea>
+
+
+                        </table>
+                        <div class="form-group">
+                            <label for="proof" style="font-weight: bold;">Attach file as a proof of the activities
+                                you have done</label><br>
+                            <input type="text" class="form-control" id="file" name="file" required></input>
+                            <input type="file" name="file"><br><br>
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mentorEmail">Select your mentorEmail</label><br>
+                            <?php
+                            include "db/database.php";
+                            $sql = "SELECT email FROM mentor";
+                            $result = $con->query($sql);
+                            if ($result->num_rows > 0) {
+                                echo "<select name='mentorEmail'>";
+                                echo "<option value=''>" . 'Select Mentor' . "</option>";
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<option value='" . $row['email'] . "'>" . $row['email'] . "</option>";
+                                }
+                                echo "</select>";
+                            }
+                            ?>
+                        </div>
+
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" name="intern"
+                                style="margin-left: 45%; margin-top: 20px;">Send
+                        </div>
+                    </form>
+                <?php } ?>
+                <!-- admin -->
+                <?php if ($_SESSION['ROLE'] == 'Admin') { ?>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <table class="table table-hover">
+                            <thead>
+                                <div class="d-grid gap-3">
+                                    <button type="button" id="internButton" class="btn btn-primary btn-block">Interns’
+                                        <?php echo date("Y"); ?>
+                                    </button>
+                                    <script type="text/javascript">
+                                        document.getElementById("internButton").onclick = function () {
+                                            location.href = "admin-intern.php";
+                                        };
+                                    </script>
+
+                                    <button type="button" id="mentorButton" class="btn btn-secondary btn-block">Mentors
+                                        <?php echo date("Y"); ?>
+                                    </button>
+                                    <script type="text/javascript">
+                                        document.getElementById("mentorButton").onclick = function () {
+                                            location.href = "admin-mentor.php";
+                                        };
+                                    </script>
+                                    <button type="button" id="adminButton" class="btn btn-danger btn-block">Admin
+                                        <?php echo date("Y"); ?>
+                                    </button>
+                                    <script type="text/javascript">
+                                        document.getElementById("adminButton").onclick = function () {
+                                            location.href = "admin-admin.php";
+                                        };
+                                    </script>
+                                </div>
+                        </table>
+                    </form>
+                <?php } ?>
+                <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+                <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                <script>
+                </script>
             </div>
-            <br>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary" name="intern" style="margin-left: 45%; margin-top: 20px;">Send
-            </div>
-        </form>
-    <?php } ?>
-    <!-- admin -->
-    <?php if ($_SESSION['ROLE'] == 'Admin') { ?>
-        <form action="" method="POST" enctype="multipart/form-data">
-            <table class="table table-hover">
-                <thead>
-                    <div class="d-grid gap-3">
-                        <button type="button" id="internButton" class="btn btn-primary btn-block">Interns’
-                            <?php echo date("Y"); ?>
-                        </button>
-                        <script type="text/javascript">
-                            document.getElementById("internButton").onclick = function () {
-                                location.href = "admin-intern.php";
-                            };
-                        </script>
-
-                        <button type="button" id="mentorButton" class="btn btn-secondary btn-block">Mentors
-                            <?php echo date("Y"); ?>
-                        </button>
-                        <script type="text/javascript">
-                            document.getElementById("mentorButton").onclick = function () {
-                                location.href = "admin-mentor.php";
-                            };
-                        </script>
-                        <button type="button" id="adminButton" class="btn btn-danger btn-block">Admin
-                            <?php echo date("Y"); ?>
-                        </button>
-                        <script type="text/javascript">
-                            document.getElementById("adminButton").onclick = function () {
-                                location.href = "admin-admin.php";
-                            };
-                        </script>
-                    </div>
-            </table>
-        </form>
-    <?php } ?>
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script>
-    </script>
+        </div>
+    </div>
 </body>
 <br><br>
 <div class="header">
@@ -166,6 +163,7 @@ if (!isset($_SESSION['ID'])) {
         <img src="image/footer.png" alt="Cinque Terre" width="160%" height="110">
     </div>
 </div>
+
 </html>
 <?php
 include "db/database.php";
